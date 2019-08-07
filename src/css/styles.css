@@ -1,0 +1,26 @@
+body { margin: 0; }
+canvas { width: 100vw; height: 100vh; border: 1px black solid}
+
+.controls {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+input {
+    height: 20px;
+    width: 150px;
+    font-size: 15px;
+    border-radius: 5px;
+    padding-left: 8px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
