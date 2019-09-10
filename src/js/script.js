@@ -39,7 +39,7 @@ function handleData(data) {
         .append("circle")
         .attr("x", d => d.x)
         .attr("y", d => d.y)
-        .style("fill", d => d.parent ? "black" : "white")
+        .style("fill", "black")
         .merge(nodes)
         .transition().duration(1000)
         .attr("r", d => d.r)
@@ -54,9 +54,6 @@ function handleData(data) {
 function handleInput(event) {
 
     let nClusters = event.value;
-
-    // Remove all cirlces
-    dataContainer.selectAll("circle").transition().duration(500).delay((d, i) => Math.random() * 3000).attr("r", 0).remove();
     
     // Group data by customer
     let groupData = d3.nest()
@@ -73,16 +70,11 @@ function handleInput(event) {
         .size(width, height)
         .sum(d => parseFloat(d.value))
         .nodeData();
-    const nodes = dataContainer.selectAll().data(nodeData);
-    nodes.enter()
-        .append("circle")
+    dataContainer.selectAll("circle").data(nodeData)
+        .transition().duration(1000)
         .attr("x", d => d.x)
         .attr("y", d => d.y)
-        .style("fill", d => d.parent ? "black" : "white")
-        .merge(nodes)
-        .transition().duration(500).delay((d, i) => Math.random() * 3000)
-        .attr("r", d => d.r)
-    nodes.exit().remove();
+        .attr("r", d => d.r);
 }
 
 /*************************************************************************************************************

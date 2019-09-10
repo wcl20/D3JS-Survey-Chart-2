@@ -80,7 +80,7 @@ var d3Survey = (function (exports, d3) {
                 nodeData = nodeData.concat(pack);
             }
     
-            return nodeData;
+            return nodeData.filter(node => node.parent);
         }
 
         /*
