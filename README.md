@@ -1,4 +1,4 @@
-# D3JS HTML5 Canvas
+# D3JS Survey Chart 2
 Using HTML5 Canvas can solve browser's puffing problems when displaying serveral thousand SVG elements.
 
 This example reads ~780000 data and renders ~8000 elements on the sceen.
